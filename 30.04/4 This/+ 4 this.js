@@ -395,3 +395,35 @@ let user8 = {
 
 askPassword(user8.login.bind(user8, true), user8.login.bind(user8, false)); // ?
 // добрався до тернарника. узнал что в bind есть синтаксис для условий
+
+
+// Объект с методами, использующими this
+// Создай объект calculator с двумя свойствами:
+// a — число
+// b — число
+// Добавь в объект методы:
+// sum() — возвращает сумму a и b
+// multiply() — возвращает произведение a и b
+// Вызови методы двумя способами:
+// Как методы объекта (calculator.sum(), calculator.multiply()) и выведи результаты.
+// Сохрани ссылку на метод в отдельную переменную (например, const sumFunc = calculator.sum) и вызови её как обычную функцию (sumFunc()). Объясни, что происходит с this.
+let firstNum = 5
+let secondNum = 8
+
+let Сalculator = {
+  a: firstNum,
+  b:secondNum,
+  
+  sum(a, b) {
+    console.log(this.a + this.b)
+  },
+  multiply(a, b) {
+    console.log(this.a * this.b)
+  },
+}
+
+let sumFunc = Сalculator.sum.bind(Сalculator)
+let multiplyFunc = Сalculator.multiply.bind(Сalculator)
+
+sumFunc(firstNum, secondNum) // вызываем суммирование из объекта
+multiplyFunc(firstNum, secondNum) // вызывает умножение из объекта
