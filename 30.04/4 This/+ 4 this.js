@@ -427,3 +427,30 @@ let multiplyFunc = Сalculator.multiply.bind(Сalculator)
 
 sumFunc(firstNum, secondNum) // вызываем суммирование из объекта
 multiplyFunc(firstNum, secondNum) // вызывает умножение из объекта
+
+
+
+// Вызов методов объекта через call/apply
+
+let firstNum = 5
+let secondNum = 8
+
+let calculator = {
+  a: firstNum,
+  b:secondNum,
+  
+  sum(a, b) {
+    console.log(this.a + this.b)
+  },
+  multiply(a, b) {
+    console.log(this.a * this.b)
+  },
+}
+
+// Используя объект из задачи 1 (calculator), вызови метод sum с помощью:
+
+
+// .call() — передай другой объект с другими значениями для свойств a и b.
+// .apply() — передай другой объект и аргументы (если нужно).
+// Создай новый объект { a: 10, b: 20 } и вызови у него метод multiply из объекта calculator, используя .call() или .apply(). Выведи результат.
+
