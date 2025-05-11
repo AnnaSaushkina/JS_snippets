@@ -1,1 +1,0 @@
-// Исправьте потерю this в методе logThis при передаче в addEventListener.

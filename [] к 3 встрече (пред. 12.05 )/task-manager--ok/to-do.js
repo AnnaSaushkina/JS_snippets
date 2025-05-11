@@ -14,8 +14,7 @@ let taskManager = {
         this.taskText = newTask.userText
         this.taskId = newTask.id
 
-        console.log(`-------Добавлена: ${this.taskText}, ${this.taskId}`)
-        // console.log(this.tasks)
+        console.log(`-------Добавлена: ${this.taskText}, ${this.taskId}`)  
     },
     deleteTask(id) {
             this.tasks.splice(id, 1)
@@ -29,27 +28,21 @@ let taskManager = {
     },
     toggleDone(id) {
         this.tasks[id].done = !this.tasks[id].done;
-        if (this.tasks[id].done) {
-          console.log("условие работает");
-        };
-          console.log("Сделана! " + this.tasks[id].done);
     }
 }
-
 // Добавление - сделано
 taskManager.addTask("первая задача", 1)
-// taskManager.addTask("вторая задача", 2)
-// taskManager.addTask("третья задача", 3)
+taskManager.addTask("вторая задача", 2)
+taskManager.addTask("третья задача", 3)
 
 // Удаление - сделано
-// taskManager.deleteTask(1)
+taskManager.deleteTask(1)
 
-// Редактирование - сделано, но ломается если указанный айдишник больше числа элементов в массиве на момент вызова метода
-// taskManager.editTask(1, "хочу вот такой текст")
-// 
-// taskManager.addTask("другая задача", 4)
+// Редактирование и тоггл - сделано, но ломается если указанный айдишник больше числа элементов в массиве на момент вызова метода
+taskManager.editTask(1, "хочу вот такой текст")
 
 taskManager.toggleDone(0)
 taskManager.toggleDone(0)
-// taskManager.toggleDone(0)
+
+console.log(taskManager.tasks)
 

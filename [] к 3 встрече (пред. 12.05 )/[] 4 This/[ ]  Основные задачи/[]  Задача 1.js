@@ -1,1 +1,0 @@
-// Почему user.sayHi() работает, а setTimeout(user.sayHi, 1000) теряет this? Как исправить?
