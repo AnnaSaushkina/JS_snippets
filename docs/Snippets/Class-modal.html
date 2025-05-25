@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class modal</title>
+  </head>
+  <style>
+    .modal {
+      width: 500px;
+      height: 300px;
+      background-color: #ccc;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 16px;
+      padding: 16px;
+      top: 0;
+      left: 0;
+    }
+
+    .hide {
+      display: none;
+    }
+    .open,
+    .modal__close {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <button class="open">Open</button>
+
+    <script>
+      class Modal {
+        constructor(content, openTag) {
+          this.content = content;
+          this.init();
+          this.open();
+          this.close();
+        }
+
+        init() {
+          const modal = `
+          <div class="modal hide">
+            <p class="modal__content">${this.content}</p>
+            <span class="modal__close">X</span>
+            </div>`;
+
+          document.body.insertAdjacentHTML("beforeend", modal);
+        }
+
+        open() {
+          this.modal = document.querySelector(".modal");
+          this.btnOpen = document.querySelector(".open");
+
+          this.btnOpen.addEventListener("click", () => {
+            this.modal.classList.remove("hide");
+          });
+        }
+
+        close() {
+          this.btnClose = document.querySelector(".modal__close");
+
+          this.btnClose.addEventListener("click", () => {
+            this.modal.classList.add("hide");
+          });
+        }
+      }
+
+      const test = new Modal("Lorem ipsum dolor sit amet consectetur.");
+    </script>
+  </body>
+</html>
